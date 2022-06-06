@@ -1,18 +1,14 @@
 {
   "compilerOptions": {
-    /* Language and Environment */
-    "target": "es2020",
+    "target": "es2021",
     "lib": ["es6"],
-    /* Modules */
     "module": "commonjs",
-    "rootDir": "./src",
-    /* JavaScript Support */
+    // "rootDir": "./src",
     "allowJs": true,
     "outDir": "./dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    /* Type Checking */
     "noImplicitAny": true,
     "skipLibCheck": true,
-  }
+  },
 }
