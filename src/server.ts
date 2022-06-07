@@ -1,6 +1,7 @@
-/* eslint-disable import/extensions */
 import app from './app';
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+require('dotenv').config();
+
+app.listen(process.env.PORT || 3001, () => {
+  console.log(`Server is running on port ${process.env.PORT}`);
 });

@@ -1,1 +1,4 @@
 jest.config.ts
+node_modules
+.cache
+src/database
