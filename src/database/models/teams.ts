@@ -1,27 +1,26 @@
 'use strict';
-const { Model } = require('sequelize');
-
-module.exports = (sequelize, DataTypes) => {
+import { DataTypes, Model } from 'sequelize';
+import db from '.';
   class teams extends Model {
-    id = { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true };
-    teamName = { type: DataTypes.STRING, allowNull: false };
+    public id: number;
+    public teamName: string;
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
-      // define association here
-    }
+    // static associate(models) {
+    //   // define association here
+    // }
   }
   teams.init({
     id: DataTypes.INTEGER,
     teamName: DataTypes.STRING
   }, {
-    sequelize,
+    sequelize: db,
     modelName: 'teams',
-    timeStamps: false,
+    timestamps: false,
     underscored: true
   });
-  return teams;
-};
+
+  export default teams;

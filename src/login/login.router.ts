@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import loginBodyValidations from './login.Validation';
-// import loginService from './login.service';
+import loginController from './login.controller';
 
 const router = Router();
 
 router
-  .post('/', loginBodyValidations);
+  .post('/', loginBodyValidations, loginController);
 
 export default router;
