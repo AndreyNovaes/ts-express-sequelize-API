@@ -34,7 +34,7 @@
     "start": "node dist/server.js",
     "lint": "eslint --ext .ts src",
     "test": "jest",
-    "drop": "cd src && npx sequelize-cli db:drop",
-    "engage": "cd src && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
+    "drop": "npx sequelize-cli db:drop",
+    "engage": "npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
   }
 }
