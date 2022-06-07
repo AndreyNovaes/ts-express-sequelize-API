@@ -1,7 +1,5 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class matches extends Model {
     id= { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true };
