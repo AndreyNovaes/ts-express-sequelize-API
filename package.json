@@ -33,6 +33,7 @@
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
     "sequelize": "^6.9.0",
+    "supertest": "^6.2.3",
     "ts-node": "^10.8.1"
   },
   "scripts": {

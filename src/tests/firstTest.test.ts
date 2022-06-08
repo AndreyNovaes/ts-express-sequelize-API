@@ -1,11 +1,11 @@
-// import request from ;
+import supertest from 'supertest';
+import app from '../app';
 
-// test('/login route without body errors', () => {
-//   const response = request(app).post('/login');
-//   expect(response.statusCode).toBe(400);
-// });
-
-test('ee', () => {
-  console.log('esse veio do ts');
-  expect(1).toBe(1);
+describe('/login route tests', () => {
+  it('test body with correct email and password', async () => {
+    // should return a json object with the user data(without password) and a token
+    // should return a status code of 200
+    const response = await supertest(app).post('/login');
+    expect(response.status).toBe(200);
+  });
 });
