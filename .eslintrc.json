@@ -16,6 +16,7 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "consistent-return": "off",
         "no-console":0,
         "import/extensions": [
       "error",
