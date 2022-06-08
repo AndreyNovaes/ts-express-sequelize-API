@@ -36,8 +36,8 @@
       "breakingChange": "BREAKING CHANGES"
     },
 
-    "commitUrl": "https://github.com/GTmudin/REPOSITORY/commit/%commit%",
-    "commitRangeUrl": "https://github.com/GTmudin/REPOSITORY/compare/%from%...%to%?diff=split",
-    "issueUrl": "https://github.com/GTmudin/REPOSITORY/issues/%issue%"
+    "commitUrl": "https://github.com/GTmudin/ts-express-sequelize-API/commits/%commit%",
+    "commitRangeUrl": "https://github.com/GTmudin/ts-express-sequelize-API/compare/%from%...%to%?diff=split",
+    "issueUrl": "https://github.com/GTmudin/ts-express-sequelize-API/issues/%issue%"
   }
 }
