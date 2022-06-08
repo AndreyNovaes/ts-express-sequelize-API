@@ -13,7 +13,6 @@ class users extends Model  {
     // }
   }
 users.init({
-    id: DataTypes.INTEGER,
     username: DataTypes.STRING,
     role: DataTypes.STRING,
     email: DataTypes.STRING,

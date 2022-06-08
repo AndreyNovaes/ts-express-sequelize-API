@@ -19,8 +19,7 @@ const config: Options = {
   port: Number(dbPort),
   dialect: 'mysql',
   dialectOptions: {
-    charset: 'utf8mb4',
-    collate: 'utf8mb4_general_ci',
+    timezone: 'Z'
   },
   logging: false,
 };

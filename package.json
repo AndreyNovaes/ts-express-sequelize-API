@@ -1,6 +1,7 @@
 {
   "name": "back-end",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
@@ -27,7 +28,8 @@
     "express": "^4.18.1",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.9.0"
+    "sequelize": "^6.9.0",
+    "ts-node": "^10.8.1"
   },
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/server.ts",
@@ -35,6 +37,8 @@
     "lint": "eslint --ext .ts src",
     "test": "jest",
     "drop": "npx sequelize-cli db:drop",
-    "engage": "npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
+    "engage": "npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
+    "build": "npm run lint && npm run test && tsc && npm run drop && npm run engage",
+    "build:watch": "tsc --watch"
   }
 }

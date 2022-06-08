@@ -14,7 +14,6 @@ import db from '.';
     // }
   }
   teams.init({
-    id: DataTypes.INTEGER,
     teamName: DataTypes.STRING
   }, {
     sequelize: db,

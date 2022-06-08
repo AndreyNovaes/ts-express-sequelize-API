@@ -1,22 +1,48 @@
 {
   "compilerOptions": {
-    "target": "es2019",
+    "target": "ES2018",
     "module": "commonjs",
-    "sourceMap": true,                     
-    "outDir": "./build",
+    "lib": [
+      "es2018"
+    ],
+    "declaration": true,
     "rootDir": "./src",
+    "outDir": "./build",
     "strict": true,
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "baseUrl": ".", 
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": false,
+    "inlineSourceMap": true,
+    "inlineSources": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
     "strictPropertyInitialization": false,
+    "esModuleInterop": true,
     "skipLibCheck": true,
-    "paths": {
-      "*": ["node_modules/*"]
-    }
+    "moduleResolution": "node",
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
+  },
+  "exclude": ["src/tests"],
+  "include": [
+    "src/**/*"
+  ],
+  "rules": {
+    "no-console": 0,
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ]
   },
 }

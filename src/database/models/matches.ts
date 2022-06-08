@@ -19,7 +19,6 @@ import db from '.';
     // }
   }
   matches.init({
-    id: DataTypes.INTEGER,
     homeTeam: DataTypes.INTEGER,
     homeTeamGoals: DataTypes.INTEGER,
     awayTeam: DataTypes.INTEGER,
