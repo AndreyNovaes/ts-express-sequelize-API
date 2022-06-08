@@ -12,6 +12,7 @@
     "@types/jest": "^28.1.1",
     "@types/jsonwebtoken": "^8.5.8",
     "@types/sequelize": "^4.28.13",
+    "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.27.1",
     "@typescript-eslint/parser": "^5.27.1",
     "babel-jest": "^28.1.1",
