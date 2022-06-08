@@ -3,3 +3,4 @@ dist
 coverage
 .env
 build
+secret.jwt.key
