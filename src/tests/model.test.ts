@@ -12,3 +12,9 @@
 //     expect(response).toBe('Connection has been established successfully.');
 //   });
 // });
+
+describe('should be ok', () => {
+  it('should be ok', () => {
+    expect(true).toBe(true);
+  });
+});
