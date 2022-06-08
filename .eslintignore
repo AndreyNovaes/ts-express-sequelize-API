@@ -3,3 +3,5 @@ node_modules
 .cache
 src/database
 jest.config.js
+babel.config.js
+package.lock.json
