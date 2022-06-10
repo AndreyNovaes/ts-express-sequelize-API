@@ -1,10 +1,14 @@
 import supertest from 'supertest';
-import app from '../app';
+import app from '../../app';
+import db from '../../database/models';
 
 const adminEmail = 'admin@admin.com';
 const adminPassword = 'secret_admin';
 
 describe('/login route tests', () => {
+  afterAll(async () => {
+    await db.close();
+  });
   it('test body with correct email and password', async () => {
     // should return a json object with the user data(without password) and a token
     // should return a status code of 200

@@ -41,7 +41,7 @@
     "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/server.ts",
     "start": "node dist/server.js",
     "lint": "eslint --ext .ts src",
-    "test": "jest",
+    "test": "jest --verbose --runInBand",
     "drop": "npx sequelize-cli db:drop",
     "engage": "npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all && npm run dev",
     "build": "npm run lint && npm run test && tsc && npm run drop && npm run engage",
