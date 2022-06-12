@@ -4,6 +4,8 @@ import db from '../../database/models';
 
 const adminEmail = 'admin@admin.com';
 const adminPassword = 'secret_admin';
+const userEmail = 'user@user.com';
+const userPassword = 'secret_user';
 
 describe('/login route tests', () => {
   afterAll(async () => {
@@ -89,7 +91,7 @@ describe('/login route tests', () => {
     expect(response.body).toHaveProperty('message');
     expect(response.body.message).toBe('Email must be valid');
   });
-  it('sucessfully login to retrieve token && response test for route /login/validate', async () => {
+  it('sucessfully login to retrieve admin token && response test for route /login/validate', async () => {
     // should return a json object with the user data(without password) and a token')
     // should return a status code of 200
     const response = await supertest(app).post('/login').send({
@@ -118,5 +120,21 @@ describe('/login route tests', () => {
     expect(response.status).toBe(401);
     expect(response.body).toHaveProperty('message');
     expect(response.body.message).toBe('Token is required');
+  });
+  it('sucessfully retrieve user token && response test for route /login/validate', async () => {
+    // should return a json object with the user data(without password) and a token')
+    // should return a status code of 200
+    const response = await supertest(app).post('/login').send({
+      email: userEmail,
+      password: userPassword,
+    });
+    const { token } = response.body;
+    // should return the role of the user what is logged in
+    // should return, in what case admin with status code of 200
+    const loginTokenValidation = await supertest(app)
+      .get('/login/validate')
+      .set('Authorization', token);
+    expect(loginTokenValidation.status).toBe(200);
+    expect(loginTokenValidation.body).toBe('user');
   });
 });
