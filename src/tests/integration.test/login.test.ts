@@ -7,8 +7,9 @@ const adminPassword = 'secret_admin';
 const userEmail = 'user@user.com';
 const userPassword = 'secret_user';
 
-describe('/login route tests', () => {
+describe('test route /login', () => {
   afterAll(async () => {
+    // Closing the connection to the database after all tests are finished.
     await db.close();
   });
   it('test body with correct email and password', async () => {
