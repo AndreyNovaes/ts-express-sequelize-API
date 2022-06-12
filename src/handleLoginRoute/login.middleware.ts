@@ -22,9 +22,8 @@ export const loginDataValidation = (req: Request, res: Response, next: NextFunct
   return next();
 };
 
-const SECRET = fs.readFileSync('secret.jwt.key').toString().trim();
-
 export const loginTokenValidation = async (req: Request, res: Response) => {
+  const SECRET = fs.readFileSync('secret.jwt.key').toString().trim();
   if (req.headers && req.headers.authorization) {
     try {
       const decode = jwt.verify(req.headers.authorization, SECRET);

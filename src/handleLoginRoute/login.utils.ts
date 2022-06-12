@@ -15,6 +15,6 @@ export const passwordValidation = (password: string, passwordFromDatabase: strin
 };
 
 export const tokenGenerator = (email: string): string => {
-  const token = jwt.sign({ email }, SECRET, { expiresIn: '1h' });
+  const token = jwt.sign({ email }, SECRET, { expiresIn: '24h' });
   return token;
 };
