@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 import loginService from './login.service';
 
-const loginController = async (req: Request, res: Response) => {
+const handleLogin = async (req: Request, res: Response) => {
   const { email, password } = req.body;
-  const response = await loginService(email, password);
+  const response = await loginService.handleLogin(email, password);
   if (!response) {
     res.status(404).json({ message: 'Invalid email or password' });
   } else {
@@ -11,4 +11,6 @@ const loginController = async (req: Request, res: Response) => {
   }
 };
 
-export default loginController;
+export default {
+  handleLogin,
+};

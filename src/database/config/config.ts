@@ -5,18 +5,12 @@ require('dotenv').config({ path: path.resolve(__dirname, '../../../.env') });
 
 const { MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE, MYSQL_HOST, MYSQL_PORT } = process.env;
 
-const dbName = MYSQL_DATABASE || 'ts-express-sequelize-restAPI';
-const dbUser = MYSQL_USER || 'root';
-const dbPassword = MYSQL_PASSWORD || 'password';
-const dbHost = MYSQL_HOST || 'localhost';
-const dbPort = MYSQL_PORT || 3306;
-
 const config: Options = {
-  username: dbUser,
-  password: dbPassword,
-  database: dbName,
-  host: dbHost,
-  port: Number(dbPort),
+  username: MYSQL_USER,
+  password: MYSQL_PASSWORD,
+  database: MYSQL_DATABASE,
+  host: MYSQL_HOST,
+  port: Number(MYSQL_PORT),
   dialect: 'mysql',
   dialectOptions: {
     timezone: 'Z'

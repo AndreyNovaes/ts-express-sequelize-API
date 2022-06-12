@@ -1,7 +1,9 @@
+// import * as jwt from 'jsonwebtoken';
+// import * as fs from 'fs';
 import users from '../database/models/users';
 import { tokenGenerator, passwordValidation } from './login.utils';
 
-const loginService = async (email: string, password:string) => {
+const handleLogin = async (email: string, password:string) => {
   const user = await users.findOne({ where: { email } });
   if (user) {
     if (user.password) {
@@ -21,4 +23,6 @@ const loginService = async (email: string, password:string) => {
   return false;
 };
 
-export default loginService;
+export default {
+  handleLogin,
+};

@@ -30,7 +30,7 @@
   },
   "exclude": ["src/tests"],
   "include": [
-    "src/**/*"
+    "src/**/*.ts"
   ],
   "rules": {
     "consistent-return": "off",

@@ -43,7 +43,7 @@
     "lint": "eslint --ext .ts src",
     "test": "jest --verbose --runInBand",
     "drop": "npx sequelize-cli db:drop",
-    "engage": "npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all && npm run dev",
+    "engage": "npm run drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all && npm run dev",
     "build": "npm run lint && npm run test && tsc && npm run drop && npm run engage",
     "build:watch": "tsc --watch"
   }
