@@ -1,7 +1,7 @@
 import matches from '../database/models/matches';
 import teams from '../database/models/teams';
 
-const getAllMatches = async () => {
+const getMatches = async () => {
   const allMatches = await matches.findAll({ raw: true });
   const allTeams = await teams.findAll({ raw: true });
   const matchesWithTeams = allMatches.map((match) => ({
@@ -20,5 +20,5 @@ const getAllMatches = async () => {
 };
 
 export default {
-  getAllMatches,
+  getMatches,
 };
