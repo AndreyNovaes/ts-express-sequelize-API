@@ -19,6 +19,24 @@ const getMatches = async () => {
   return matchesWithTeams;
 };
 
+const createMatch = async (
+  homeTeam: string,
+  awayTeam: string,
+  homeTeamGoals:string,
+  awayTeamGoals:string,
+  inProgress:string,
+) => {
+  const match = await matches.create({
+    homeTeam,
+    awayTeam,
+    homeTeamGoals,
+    awayTeamGoals,
+    inProgress,
+  });
+  return match;
+};
+
 export default {
   getMatches,
+  createMatch,
 };

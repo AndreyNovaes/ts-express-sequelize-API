@@ -48,4 +48,21 @@ describe('test route /matches', () => {
     expect(response.body[0]).toHaveProperty('teamAway');
     expect(response.body[0].inProgress).toBe(0);
   });
+  it('test CreateTeam POST /matches', async () => {
+    // should return a json object with the new team
+    const response = await supertest(app).post('/matches').send({
+      homeTeam: 1,
+      homeTeamGoals: 1,
+      awayTeam: 6,
+      awayTeamGoals: 2,
+      inProgress: true,
+    });
+    expect(response.status).toBe(201);
+    expect(response.body).toHaveProperty('id');
+    expect(response.body).toHaveProperty('homeTeam');
+    expect(response.body).toHaveProperty('awayTeam');
+    expect(response.body).toHaveProperty('homeTeamGoals');
+    expect(response.body).toHaveProperty('awayTeamGoals');
+    expect(response.body).toHaveProperty('inProgress');
+  });
 });
