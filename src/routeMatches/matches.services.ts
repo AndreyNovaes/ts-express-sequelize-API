@@ -11,8 +11,10 @@ const getAllMatches = async () => {
     awayTeam: match.awayTeam,
     awayTeamGoals: match.awayTeamGoals,
     inProgress: match.inProgress,
-    teamHome: allTeams.filter((team) => team.id === match.homeTeam).map((team) => team.teamName)[0],
-    teamAway: allTeams.filter((team) => team.id === match.awayTeam).map((team) => team.teamName)[0],
+    teamHome: allTeams.find((team) => team.id === match.homeTeam)!.teamName,
+    teamAway: allTeams.find((team) => team.id === match.awayTeam)!.teamName,
+    // uso indevido de operador not null assertion(má prática), verificar se, caso seja nulo
+    // a aplicação ainda funcionará normalmente no frontend sem cair o banco
   }));
   return matchesWithTeams;
 };
