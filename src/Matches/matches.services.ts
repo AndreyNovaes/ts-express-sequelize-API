@@ -36,7 +36,17 @@ const createMatch = async (
   return match;
 };
 
+const finishMatch = async (id: string) => {
+  const match = await matches.findOne({ where: { id } });
+  if (match) {
+    await match.update({ inProgress: false });
+    return match;
+  }
+  return false;
+};
+
 export default {
   getMatches,
   createMatch,
+  finishMatch,
 };

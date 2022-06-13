@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express';
-import loginRouter from './routeLogin/login.router';
-import teamsRouter from './routeTeams/teams.router';
-import matchesRouter from './routeMatches/matches.router';
+import loginRouter from './Login/login.router';
+import teamsRouter from './Teams/teams.router';
+import matchesRouter from './Matches/matches.router';
 
 const app = express();
 

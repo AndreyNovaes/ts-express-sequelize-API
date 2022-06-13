@@ -15,17 +15,29 @@ const getMatches = async (req: Request, res: Response) => {
 };
 
 const createMatch = async (req: Request, res: Response) => {
+  const {
+    homeTeam, awayTeam, homeTeamGoals, awayTeamGoals, inProgress,
+  } = req.body;
   const match = await matchesServices.createMatch(
-    req.body.homeTeam,
-    req.body.awayTeam,
-    req.body.homeTeamGoals,
-    req.body.awayTeamGoals,
-    req.body.inProgress,
+    homeTeam,
+    awayTeam,
+    homeTeamGoals,
+    awayTeamGoals,
+    inProgress,
   );
   return res.status(201).json(match);
+};
+
+const finishMatch = async (req: Request, res: Response) => {
+  const isMatchFinished = await matchesServices.finishMatch(req.params.id);
+  if (isMatchFinished) {
+    return res.status(200).json({ message: `Match with id ${req.params.id} finished` });
+  }
+  return res.status(404).json({ message: `Match with id ${req.params.id} not found` });
 };
 
 export default {
   getMatches,
   createMatch,
+  finishMatch,
 };
