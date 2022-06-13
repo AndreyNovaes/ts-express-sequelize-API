@@ -20,4 +20,32 @@ describe('test route /matches', () => {
     expect(response.body[0]).toHaveProperty('teamHome');
     expect(response.body[0]).toHaveProperty('teamAway');
   });
+  it('test getAllMatches GET /matches with inProgress=true', async () => {
+    // should return an array of matches what is in progress with the name of the teams
+    const response = await supertest(app).get('/matches?inProgress=true');
+    expect(response.status).toBe(200);
+    expect(response.body[0]).toHaveProperty('id');
+    expect(response.body[0]).toHaveProperty('homeTeam');
+    expect(response.body[0]).toHaveProperty('homeTeamGoals');
+    expect(response.body[0]).toHaveProperty('awayTeam');
+    expect(response.body[0]).toHaveProperty('awayTeamGoals');
+    expect(response.body[0]).toHaveProperty('inProgress');
+    expect(response.body[0]).toHaveProperty('teamHome');
+    expect(response.body[0]).toHaveProperty('teamAway');
+    expect(response.body[0].inProgress).toBe(1);
+  });
+  it('test getAllMatches GET /matches with inProgress=false', async () => {
+    // should return an array of matches what is not in progress with the name of the teams
+    const response = await supertest(app).get('/matches?inProgress=false');
+    expect(response.status).toBe(200);
+    expect(response.body[0]).toHaveProperty('id');
+    expect(response.body[0]).toHaveProperty('homeTeam');
+    expect(response.body[0]).toHaveProperty('homeTeamGoals');
+    expect(response.body[0]).toHaveProperty('awayTeam');
+    expect(response.body[0]).toHaveProperty('awayTeamGoals');
+    expect(response.body[0]).toHaveProperty('inProgress');
+    expect(response.body[0]).toHaveProperty('teamHome');
+    expect(response.body[0]).toHaveProperty('teamAway');
+    expect(response.body[0].inProgress).toBe(0);
+  });
 });
