@@ -1,6 +1,6 @@
 import supertest from 'supertest';
-import app from '../../app';
-import db from '../../database/models';
+import app from '../app';
+import db from '../database/models';
 
 describe('test route /teams', () => {
   afterAll(async () => {

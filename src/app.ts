@@ -1,14 +1,25 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 import loginRouter from './Login/login.router';
 import teamsRouter from './Teams/teams.router';
 import matchesRouter from './Matches/matches.router';
 
-const app = express();
+class App {
+  public app: express.Express;
 
-app.use(express.json());
-app.get('/', (_req: Request, res: Response) => res.json({ message: 'Hello World' }));
-app.use('/login', loginRouter);
-app.use('/teams', teamsRouter);
-app.use('/matches', matchesRouter);
+  constructor() {
+    this.app = express();
+    this.config();
+  }
+
+  private config(): void {
+    this.app.use(express.json());
+    this.app.use(express.urlencoded({ extended: false }));
+    this.app.use('/login', loginRouter);
+    this.app.use('/teams', teamsRouter);
+    this.app.use('/matches', matchesRouter);
+  }
+}
+
+const { app } = new App();
 
 export default app;
